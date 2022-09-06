@@ -1,21 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getPosts } from '../queries/Post';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
-const items = await getPosts();
+const posts = await getPosts();
 ---
 
 <Layout title='Diane Esnault'>
   <main>
-    <h1>Diane Esnault</h1>
-    {
-      items.map(({ title, body }) => (
-        <div>
-          {title}
-          <div set:html={documentToHtmlString(body.json)} />
-        </div>
-      ))
-    }
+    <h1 class='m-8 font-bold'>Diane Esnault</h1>
+    <div class='m-8'>
+      {
+        posts.map(({ title, slug }) => (
+          <div>
+            <a href={`/${slug}`}>{title}</a>
+          </div>
+        ))
+      }
+    </div>
   </main>
 </Layout>

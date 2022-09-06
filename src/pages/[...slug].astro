@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getPosts } from '../queries/Post';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+
+  return posts.map(({ slug, title, body }) => {
+    return {
+      params: { slug },
+      props: { title, body },
+    };
+  });
+}
+
+const { title, body } = Astro.props;
+---
+
+<Layout title={title}>
+  <div class='m-8'>
+    <a href='/'>Back</a>
+  </div>
+  <div class='m-8'>
+    <div set:html={documentToHtmlString(body.json)}></div>
+  </div>
+</Layout>
