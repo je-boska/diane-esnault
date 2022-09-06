@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.1.5",
-    "graphql": "^16.6.0"
+    "@contentful/rich-text-html-renderer": "^15.13.1",
+    "astro": "^1.1.5"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^1.0.0",
