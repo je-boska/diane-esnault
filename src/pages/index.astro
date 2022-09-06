@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getPosts } from '../queries/Post';
+
+const items = await getPosts();
+---
+
+<Layout title='Diane Esnault'>
+  <main>
+    <h1>Diane Esnault</h1>
+    {items.map(({ title }) => <div>{title}</div>)}
+  </main>
+</Layout>
