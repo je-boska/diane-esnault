@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Pyromaani';
+  src: url('/fonts/Pyromaani.woff') format('woff');
+  font-weight: 100 1000;
+}
+
+body {
+  font-family: sans-serif;
+}

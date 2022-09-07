@@ -6,22 +6,27 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 export async function getStaticPaths() {
   const posts = await getPosts();
 
-  return posts.map(({ slug, title, body }) => {
-    return {
-      params: { slug },
-      props: { title, body },
-    };
-  });
+  return posts.map(
+    ({ slug, title, body, imagesCollection: { items: images } }) => {
+      return {
+        params: { slug },
+        props: { title, body, images },
+      };
+    }
+  );
 }
 
-const { title, body } = Astro.props;
+const { title, body, images } = Astro.props;
 ---
 
 <Layout title={title}>
-  <div class='m-8'>
-    <a href='/'>Back</a>
+  <div class='m-8 text-2xl font-bold font-title'>
+    <a href='/'>DE</a>
   </div>
   <div class='m-8'>
     <div set:html={documentToHtmlString(body.json)}></div>
+  </div>
+  <div>
+    {images.map(({ url }) => <img class='m-8' src={url} alt='' />)}
   </div>
 </Layout>

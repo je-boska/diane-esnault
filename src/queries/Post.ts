@@ -14,30 +14,35 @@ export async function getPosts() {
       body: JSON.stringify({
         query: `
           query PostsQuery {
-              postCollection (limit: 10) {
-                  items {
-                      title
-                      slug
-                      body {
-                          json
-                          links {
-                            assets {
-                              block {
-                                sys {
-                                  id
-                                }
-                                contentType
-                                title
-                                description
-                                url
-                                width
-                                height
-                              }
-                            }
-                          }
+            postCollection (limit: 10) {
+              items {
+                title
+                slug
+                body {
+                  json
+                  links {
+                    assets {
+                      block {
+                        sys {
+                          id
+                        }
+                        contentType
+                        title
+                        description
+                        url
+                        width
+                        height
                       }
+                    }
                   }
+                }
+                imagesCollection(limit: 10) {
+                  items {
+                    url
+                  }
+                }
               }
+            }
           }
           `,
       }),
