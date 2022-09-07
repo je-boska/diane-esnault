@@ -39,8 +39,12 @@ export async function getPosts() {
                 imagesCollection(limit: 10) {
                   items {
                     url
+                    width
+                    height
                   }
                 }
+                color
+                backgroundColor
               }
             }
           }

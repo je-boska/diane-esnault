@@ -1,21 +1,25 @@
 ---
+import Post from '../components/Post.astro';
 import Layout from '../layouts/Layout.astro';
 import { getPosts } from '../queries/Post';
 
 const posts = await getPosts();
+const { color } = posts[0];
 ---
+
+<style define:vars={{ color }}>
+  h1 {
+    color: var(--color);
+  }
+</style>
 
 <Layout title='Diane Esnault'>
   <main>
-    <h1 class='m-8 text-2xl font-bold font-title'>Diane Esnault</h1>
-    <div class='m-8'>
-      {
-        posts.map(({ title, slug }) => (
-          <div>
-            <a href={`/${slug}`}>{title}</a>
-          </div>
-        ))
-      }
+    <h1 class='fixed top-4 left-4 text-5xl z-10 font-bold font-title'>
+      Diane Esnault
+    </h1>
+    <div class='flex flex-wrap'>
+      {posts.map((post) => <Post post={post} />)}
     </div>
   </main>
 </Layout>

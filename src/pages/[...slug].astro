@@ -20,13 +20,13 @@ const { title, body, images } = Astro.props;
 ---
 
 <Layout title={title}>
-  <div class='m-8 text-2xl font-bold font-title'>
+  <div class='p-4 mb-8 text-5xl font-bold font-title'>
     <a href='/'>DE</a>
   </div>
-  <div class='m-8'>
+  <div class='p-4'>
     <div set:html={documentToHtmlString(body.json)}></div>
   </div>
-  <div>
-    {images.map(({ url }) => <img class='m-8' src={url} alt='' />)}
+  <div class='w-full'>
+    {images.map(({ url }) => <img class='p-4' src={url} alt='' />)}
   </div>
 </Layout>
