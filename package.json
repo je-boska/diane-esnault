@@ -11,10 +11,12 @@
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^15.13.1",
-    "astro": "^1.1.5"
+    "astro": "^1.1.5",
+    "node-html-parser": "^6.0.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^1.0.0",
-    "@types/node": "^18.7.15"
+    "@types/node": "^18.7.15",
+    "postcss-inline-svg": "^5.0.0"
   }
 }

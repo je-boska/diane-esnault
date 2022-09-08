@@ -39,6 +39,7 @@ export async function getPosts() {
                 imagesCollection(limit: 10) {
                   items {
                     url
+                    title
                     width
                     height
                   }

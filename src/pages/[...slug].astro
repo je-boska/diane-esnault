@@ -2,31 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 import { getPosts } from '../queries/Post';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Icon from '../components/Icon.astro';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
 
   return posts.map(
-    ({ slug, title, body, imagesCollection: { items: images } }) => {
+    ({
+      slug,
+      title,
+      body,
+      imagesCollection: { items: images },
+      color,
+      backgroundColor,
+    }) => {
       return {
         params: { slug },
-        props: { title, body, images },
+        props: { title, body, images, color, backgroundColor },
       };
     }
   );
 }
 
-const { title, body, images } = Astro.props;
+const { title, body, images, color, backgroundColor } = Astro.props;
 ---
 
-<Layout title={title}>
-  <div class='p-4 mb-8 text-5xl font-bold font-title'>
-    <a href='/'>DE</a>
-  </div>
-  <div class='p-4'>
-    <div set:html={documentToHtmlString(body.json)}></div>
-  </div>
-  <div class='w-full'>
-    {images.map(({ url }) => <img class='p-4' src={url} alt='' />)}
-  </div>
+<Layout title={title} color={color} backgroundColor={backgroundColor}>
+  <main>
+    <div class='fixed top-4 right-4'>
+      <a href='/'>
+        <Icon icon='close' class='w-8 h-8 md:w-10 md:h-10 fill-current' />
+      </a>
+    </div>
+    <h1 class='mb-8 mr-12 p-4 text-4xl md:text-5xl font-title'>{title}</h1>
+    <div class='p-4'>
+      <div set:html={documentToHtmlString(body.json)}></div>
+    </div>
+    <div class='w-full flex flex-wrap'>
+      {
+        images.map(({ url, title }) => (
+          <img class='p-2 w-full lg:w-1/2' src={url} alt={title} />
+        ))
+      }
+    </div>
+  </main>
 </Layout>

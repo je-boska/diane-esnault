@@ -3,9 +3,11 @@ import '../styles/global.css';
 
 export interface Props {
   title: string;
+  color?: string;
+  backgroundColor?: string;
 }
 
-const { title } = Astro.props;
+const { title, color, backgroundColor } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -16,6 +18,12 @@ const { title } = Astro.props;
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <meta name='generator' content={Astro.generator} />
     <title>Diane Esnault | {title}</title>
+    <style define:vars={{ color, backgroundColor }}>
+      body {
+        color: var(--color);
+        background-color: var(--backgroundColor);
+      }
+    </style>
   </head>
   <body>
     <slot />
