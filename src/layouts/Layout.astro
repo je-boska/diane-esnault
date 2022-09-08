@@ -12,20 +12,64 @@ const { title, color, backgroundColor } = Astro.props;
 
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
-    <title>Diane Esnault | {title}</title>
-    <style define:vars={{ color, backgroundColor }}>
-      body {
-        color: var(--color);
-        background-color: var(--backgroundColor);
-      }
-    </style>
-  </head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width' />
+  <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+  <meta name='generator' content={Astro.generator} />
+  <title>Diane Esnault | {title}</title>
+  <style define:vars={{ color, backgroundColor }}>
+    body {
+      color: var(--color);
+      background-color: var(--backgroundColor);
+    }
+  </style>
   <body>
     <slot />
+    <script is:inline defer>
+      const posts = document.querySelectorAll('.post');
+
+      posts.forEach((post) => {
+        post.addEventListener(
+          'mousemove',
+          function (e) {
+            const pos = getMousePos(e, post);
+            draw(pos, post);
+          },
+          false
+        );
+      });
+
+      function draw(pos, post) {
+        const dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.position = 'absolute';
+        dot.style.top = pos.y + 'px';
+        dot.style.left = pos.x + 'px';
+        dot.style.width = '8px';
+        dot.style.height = '8px';
+        dot.style.backgroundColor = 'black';
+        dot.style.opacity = 0.5;
+        dot.style.transition = 'opacity';
+        dot.style.pointerEvents = 'none';
+        dot.style.borderRadius = '100%';
+        post.appendChild(dot);
+        setTimeout(() => {
+          setInterval(() => {
+            dot.style.opacity -= 0.04;
+          }, 90);
+        }, 800);
+        setTimeout(() => {
+          dot.remove();
+        }, 2000);
+      }
+
+      function getMousePos(e, post) {
+        var rect = post.getBoundingClientRect();
+        return {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        };
+      }
+    </script>
   </body>
 </html>

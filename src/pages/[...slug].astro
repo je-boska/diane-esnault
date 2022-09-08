@@ -28,13 +28,15 @@ const { title, body, images, color, backgroundColor } = Astro.props;
 ---
 
 <Layout title={title} color={color} backgroundColor={backgroundColor}>
-  <main>
-    <div class='fixed top-4 right-4'>
+  <main class='relative'>
+    <div class='fixed top-5 right-5'>
       <a href='/'>
         <Icon icon='close' class='w-8 h-8 md:w-10 md:h-10 fill-current' />
       </a>
     </div>
-    <h1 class='mb-8 mr-12 p-4 text-4xl md:text-5xl font-title'>{title}</h1>
+    <h1 class='mb-8 mr-12 p-4 text-5xl xl:text-7xl md:text-5xl font-title'>
+      {title}
+    </h1>
     <div class='p-4'>
       <div set:html={documentToHtmlString(body.json)}></div>
     </div>

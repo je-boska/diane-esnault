@@ -11,16 +11,12 @@ const { title, slug, color, backgroundColor, imagesCollection } = post;
 </style>
 
 <div
-  class='post relative flex justify-center items-center h-screen w-full p-4 border-b-2 border-black'
+  class='post relative flex justify-center items-center w-full px-4 py-40 border-b-2 border-black'
 >
   <div>
     <a href={`/${slug}`}>
-      <img
-        class='mb-8 max-h-[600px]'
-        src={imagesCollection.items[0].url}
-        alt=''
-      />
-      <h2 class='w-full text-3xl xl:text-4xl text-center font-title'>
+      <img class='mb-8' src={imagesCollection.items[0].url} alt='' />
+      <h2 class='w-full text-3xl xl:text-4xl text-center font-serif italic'>
         {title}
       </h2>
     </a>

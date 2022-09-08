@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     fontFamily: {
       title: 'Pyromaani',
+      serif: 'Times New Roman',
     },
     extend: {},
   },
