@@ -45,17 +45,19 @@ const { title, color, backgroundColor } = Astro.props;
         dot.style.position = 'absolute';
         dot.style.top = pos.y + 'px';
         dot.style.left = pos.x + 'px';
-        dot.style.width = '8px';
-        dot.style.height = '8px';
+        dot.style.width = '10px';
+        dot.style.height = '10px';
         dot.style.backgroundColor = 'black';
         dot.style.opacity = 0.5;
         dot.style.transition = 'opacity';
         dot.style.pointerEvents = 'none';
         dot.style.borderRadius = '100%';
+        dot.style.scale = 1;
         post.appendChild(dot);
         setTimeout(() => {
           setInterval(() => {
             dot.style.opacity -= 0.04;
+            dot.style.scale -= 0.1;
           }, 90);
         }, 800);
         setTimeout(() => {

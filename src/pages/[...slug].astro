@@ -37,7 +37,7 @@ const { title, body, images, color, backgroundColor } = Astro.props;
     <h1 class='mb-8 mr-12 p-4 text-5xl xl:text-7xl md:text-5xl font-title'>
       {title}
     </h1>
-    <div class='p-4'>
+    <div class='p-4 italic text-xl md:text-2xl xl:text-3xl max-w-3xl'>
       <div set:html={documentToHtmlString(body.json)}></div>
     </div>
     <div class='w-full flex flex-wrap px-2'>
