@@ -1,9 +1,9 @@
 import { contentfulQuery } from './Query';
 
-export async function getPosts() {
+export async function getCategories() {
   const query = /* GRAPHQL */ `
-    query PostsQuery {
-      postCollection (limit: 10) {
+    query CategoryQuery {
+      categoryCollection (limit: 10) {
         items {
           title
           slug
@@ -25,19 +25,25 @@ export async function getPosts() {
               }
             }
           }
-          imagesCollection(limit: 10) {
-            items {
-              url
-              title
-              width
-              height
+          linkedFrom {
+            postCollection(limit:10) {
+                items {
+                    title
+                    slug
+                    imagesCollection(limit: 1) {
+                        items {
+                          url
+                          title
+                          width
+                          height
+                        }
+                    }
+                }
             }
           }
-          color
-          backgroundColor
         }
       }
     }`;
   const data = await contentfulQuery(query);
-  return data.postCollection.items;
+  return data.categoryCollection.items;
 }

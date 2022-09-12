@@ -1,27 +1,23 @@
 ---
-import Post from '../components/Post.astro';
 import Layout from '../layouts/Layout.astro';
-import { getPosts } from '../queries/Post';
+import { getCategories } from '../queries/Category';
 
-const posts = await getPosts();
-const { color } = posts[0];
+const categories = await getCategories();
 ---
-
-<style define:vars={{ color }}>
-  h1 {
-    color: var(--color);
-  }
-</style>
 
 <Layout title='Diane Esnault'>
   <main>
-    <h1
-      class='absolute top-4 left-4 text-5xl xl:text-7xl z-10 font-bold font-title'
-    >
-      Diane Esnault
-    </h1>
+    <h1 class='text-5xl xl:text-7xl font-bold font-title'>Diane Esnault</h1>
     <div class='flex flex-wrap'>
-      {posts.map((post) => <Post post={post} />)}
+      {
+        categories.map(({ title, slug }) => (
+          <div>
+            <a href={`/category/${slug}`}>
+              <h2>{title}</h2>
+            </a>
+          </div>
+        ))
+      }
     </div>
   </main>
 </Layout>

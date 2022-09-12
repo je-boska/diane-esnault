@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCategories } from '../../queries/Category';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Icon from '../../components/Icon.astro';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+
+  return categories.map(({ slug, title, body, linkedFrom }) => {
+    return {
+      params: { slug },
+      props: { title, body, linkedFrom },
+    };
+  });
+}
+
+const { title, body, linkedFrom } = Astro.props;
+---
+
+<Layout title={title}>
+  <main class='relative'>
+    <div class='fixed top-5 right-5'>
+      <a href='/'>
+        <Icon icon='close' class='w-8 h-8 md:w-10 md:h-10 fill-current' />
+      </a>
+    </div>
+    <h1 class='mb-8 mr-12 p-4 text-5xl xl:text-7xl md:text-5xl font-title'>
+      {title}
+    </h1>
+    <div class='p-4 italic text-xl md:text-2xl xl:text-3xl max-w-3xl'>
+      <div set:html={documentToHtmlString(body.json)}></div>
+    </div>
+    <div>
+      {
+        linkedFrom.postCollection.items.map(
+          ({ title, slug, imagesCollection }) => (
+            <div>
+              <a href={`/${slug}`}>
+                <img
+                  src={imagesCollection.items[0].url}
+                  alt={imagesCollection.items[0].title}
+                />
+                <h2>{title}</h2>
+              </a>
+            </div>
+          )
+        )
+      }
+    </div>
+  </main>
+</Layout>
