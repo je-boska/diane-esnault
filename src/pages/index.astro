@@ -5,19 +5,32 @@ import { getCategories } from '../queries/Category';
 const categories = await getCategories();
 ---
 
-<Layout title='Diane Esnault'>
+<Layout title='Diane Esnault' home>
   <main>
-    <h1 class='text-5xl xl:text-7xl font-bold font-title'>Diane Esnault</h1>
-    <div class='flex flex-wrap'>
-      {
-        categories.map(({ title, slug }) => (
-          <div>
-            <a href={`/category/${slug}`}>
-              <h2>{title}</h2>
-            </a>
-          </div>
-        ))
-      }
+    <div class='max-w-3xl mx-auto px-2 text-center mt-[50vh] -translate-y-1/2'>
+      <h1 class='text-5xl xl:text-7xl font-bold font-title mb-6'>
+        Diane Esnault
+      </h1>
+      <p class='mb-6'>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum alias a
+        obcaecati ipsa, amet, debitis nobis libero minima corrupti voluptatem
+        non reiciendis vitae optio numquam, consequuntur repudiandae laborum
+        maiores quia tempore?
+      </p>
+      <div class='flex flex-wrap justify-center'>
+        {
+          categories.map(({ title, slug }, idx) => (
+            <div class='font-bold'>
+              <a href={`/category/${slug}`}>
+                <h2 class='inline uppercase'>{title}</h2>
+                {idx !== categories.length - 1 ? (
+                  <span class='mx-2'>|</span>
+                ) : null}
+              </a>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </main>
 </Layout>

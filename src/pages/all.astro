@@ -1,0 +1,27 @@
+---
+import Post from '../components/Post.astro';
+import Layout from '../layouts/Layout.astro';
+import { getPosts } from '../queries/Post';
+
+const posts = await getPosts();
+---
+
+<Layout title='All' nav>
+  <main>
+    <h1
+      class='mt-20 mb-8 mr-12 p-4 text-5xl xl:text-7xl md:text-5xl font-title'
+    >
+      All
+    </h1>
+    <div class='p-4 pb-8 italic text-xl md:text-2xl xl:text-3xl max-w-3xl'>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+        officia quaerat laboriosam at alias nobis ducimus eveniet ea nesciunt
+        debitis?
+      </p>
+    </div>
+    <div class='flex flex-wrap'>
+      {posts.map((post) => <Post post={post} />)}
+    </div>
+  </main>
+</Layout>

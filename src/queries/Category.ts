@@ -47,3 +47,17 @@ export async function getCategories() {
   const data = await contentfulQuery(query);
   return data.categoryCollection.items;
 }
+
+export async function getCategoryNames() {
+  const query = /* GRAPHQL */ `
+    query CategoryQuery {
+      categoryCollection (limit: 10) {
+        items {
+          title
+          slug
+        }
+      }
+    }`;
+  const data = await contentfulQuery(query);
+  return data.categoryCollection.items;
+}

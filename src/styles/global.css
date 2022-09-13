@@ -7,3 +7,7 @@
 body {
   @apply font-serif;
 }
+
+p {
+  @apply italic;
+}

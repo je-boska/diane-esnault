@@ -1,13 +1,19 @@
 ---
+import Nav from '../components/Nav.astro';
+import { getCategoryNames } from '../queries/Category';
 import '../styles/global.css';
 
 export interface Props {
   title: string;
   color?: string;
   backgroundColor?: string;
+  nav?: boolean;
+  home?: boolean;
 }
 
-const { title, color, backgroundColor } = Astro.props;
+const { title, color, backgroundColor, nav, home } = Astro.props;
+
+const categories = await getCategoryNames();
 ---
 
 <!DOCTYPE html>
@@ -24,6 +30,7 @@ const { title, color, backgroundColor } = Astro.props;
     }
   </style>
   <body>
+    {nav ? <Nav categories={categories} /> : null}
     <slot />
     <script is:inline defer>
       const posts = document.querySelectorAll('.post');
