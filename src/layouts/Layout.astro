@@ -30,37 +30,38 @@ const categories = await getCategoryNames();
     }
   </style>
   <body>
-    {nav ? <Nav categories={categories} /> : null}
-    <slot />
+    <div id='canvas' class='z-10 h-full w-full absolute'>
+      {nav ? <Nav categories={categories} /> : null}
+      <slot />
+    </div>
     <script is:inline defer>
-      const posts = document.querySelectorAll('.post');
+      const canvas = document.getElementById('canvas');
 
-      posts.forEach((post) => {
-        post.addEventListener(
-          'mousemove',
-          function (e) {
-            const pos = getMousePos(e, post);
-            draw(pos, post);
-          },
-          false
-        );
-      });
+      canvas.addEventListener(
+        'mousemove',
+        function (e) {
+          const pos = getMousePos(e);
+          draw(pos);
+        },
+        false
+      );
 
-      function draw(pos, post) {
+      function draw(pos) {
         const dot = document.createElement('div');
         dot.className = 'dot';
         dot.style.position = 'absolute';
         dot.style.top = pos.y + 'px';
         dot.style.left = pos.x + 'px';
-        dot.style.width = '10px';
-        dot.style.height = '10px';
+        dot.style.width = '8px';
+        dot.style.height = '8px';
         dot.style.backgroundColor = 'black';
         dot.style.opacity = 0.5;
         dot.style.transition = 'opacity';
         dot.style.pointerEvents = 'none';
         dot.style.borderRadius = '100%';
+        dot.style.boxShadow = 'rgba(0, 0, 0, 0.9) 0px 0px 8px';
         dot.style.scale = 1;
-        post.appendChild(dot);
+        canvas.appendChild(dot);
         setTimeout(() => {
           setInterval(() => {
             dot.style.opacity -= 0.04;
@@ -72,8 +73,8 @@ const categories = await getCategoryNames();
         }, 2000);
       }
 
-      function getMousePos(e, post) {
-        var rect = post.getBoundingClientRect();
+      function getMousePos(e) {
+        var rect = canvas.getBoundingClientRect();
         return {
           x: e.clientX - rect.left,
           y: e.clientY - rect.top,
