@@ -11,3 +11,11 @@ body {
 p {
   @apply italic;
 }
+
+.heading {
+  @apply mb-6 px-4 text-4xl md:text-5xl xl:text-7xl font-title;
+}
+
+.single-page-heading {
+  @apply mt-10 mr-12;
+}
