@@ -4,8 +4,11 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      title: 'Pyromaani',
-      serif: 'Times New Roman',
+      title: ['Pyromaani', 'Helvetica'],
+      serif: ['Noto Serif', 'Times New Roman'],
+    },
+    colors: {
+      test: '#a503fc',
     },
     extend: {},
   },

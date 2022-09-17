@@ -8,6 +8,12 @@ body {
   @apply font-serif;
 }
 
+body,
+a,
+a:focus {
+  cursor: url(/pink-cursor.png), auto;
+}
+
 p {
   @apply italic;
 }
