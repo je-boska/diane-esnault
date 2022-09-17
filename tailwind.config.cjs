@@ -8,7 +8,14 @@ module.exports = {
       serif: ['Noto Serif', 'Times New Roman'],
     },
     colors: {
-      test: '#a503fc',
+      diane: {
+        darkBrown: '#301B05',
+        brown: '#be8e5f',
+        white: '#fff8f0',
+        green: '#c0fda1',
+        darkGreen: '#c1da98',
+        pink: '#c8afab',
+      },
     },
     extend: {},
   },
