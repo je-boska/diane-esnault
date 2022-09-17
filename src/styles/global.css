@@ -1,7 +1,17 @@
 @font-face {
-  font-family: 'Pyromaani';
-  src: url('/fonts/Pyromaani.woff') format('woff');
+  font-family: 'Homeworld';
+  src: url('/fonts/Homeworld.ttf') format('truetype');
   font-weight: 100 1000;
+}
+
+@font-face {
+  font-family: 'KENOKY-Regular';
+  src: url('/fonts/KENOKY-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'KENOKY-Bold';
+  src: url('/fonts/KENOKY-Bold.woff2') format('woff2');
 }
 
 body {
@@ -14,14 +24,22 @@ a:focus {
   cursor: url(/feather-cursor.png) 0 20, auto;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 p {
-  @apply italic;
+  @apply italic tracking-wider;
+}
+
+b {
+  @apply font-bold tracking-wider;
 }
 
 .heading {
-  @apply mb-6 px-4 text-4xl md:text-5xl xl:text-7xl font-title;
+  @apply mb-8 px-4 text-4xl sm:text-5xl md:text-6xl xl:text-8xl font-title;
 }
 
 .single-page-heading {
-  @apply mt-10 mr-12;
+  @apply mt-16 mr-12;
 }

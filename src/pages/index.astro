@@ -7,20 +7,14 @@ const categories = await getCategories();
 
 <Layout title='Diane Esnault'>
   <main>
-    <div class='max-w-3xl mx-auto px-2 text-center mt-[50vh] -translate-y-1/2'>
-      <h1 class='heading text-diane-darkBrown'>Diane Esnault</h1>
-      <p class='text-lg md:text-xl mb-6'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum alias a
-        obcaecati ipsa, amet, debitis nobis libero minima corrupti voluptatem
-        non reiciendis vitae optio numquam, consequuntur repudiandae laborum
-        maiores quia tempore?
-      </p>
+    <div class='max-w-8xl mx-auto px-2 text-center mt-[50vh] -translate-y-1/2'>
+      <h1 class='heading'>Diane Esnault</h1>
       <div class='flex flex-wrap justify-center'>
         {
           categories.map(({ title, slug }, idx) => (
             <div class='font-bold'>
               <a href={`/category/${slug}`}>
-                <h2 class='inline uppercase'>{title}</h2>
+                <h2 class='inline uppercase md:text-lg xl:text-xl'>{title}</h2>
                 {idx !== categories.length - 1 ? (
                   <span class='mx-2'>|</span>
                 ) : null}

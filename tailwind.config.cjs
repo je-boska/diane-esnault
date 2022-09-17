@@ -4,8 +4,9 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontFamily: {
-      title: ['Pyromaani', 'Helvetica'],
-      serif: ['Noto Serif', 'Times New Roman'],
+      title: ['Homeworld', 'Helvetica'],
+      serif: ['KENOKY-Regular', 'Times New Roman'],
+      bold: ['KENOKY-Bold', 'Times New Roman'],
     },
     colors: {
       diane: {

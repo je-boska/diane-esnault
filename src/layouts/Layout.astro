@@ -1,7 +1,6 @@
 ---
 import Nav from '../components/Nav.astro';
 import { getCategoryNames } from '../queries/Category';
-import '@fontsource/noto-serif';
 import '../styles/global.css';
 
 export interface Props {
@@ -65,12 +64,12 @@ const categories = await getCategoryNames();
         dot.style.left = pos.x + 'px';
         dot.style.width = '8px';
         dot.style.height = '8px';
-        dot.style.backgroundColor = '#301B05';
+        dot.style.backgroundColor = '#c8afab';
         dot.style.opacity = 0.3;
         dot.style.transition = 'opacity';
         dot.style.pointerEvents = 'none';
         dot.style.borderRadius = '100%';
-        dot.style.boxShadow = 'rgba(0, 0, 0, 0.5) 0px 0px 8px';
+        dot.style.boxShadow = '#e3c6c1 0px 0px 8px';
         dot.style.scale = 1;
         canvas.appendChild(dot);
         setTimeout(() => {
