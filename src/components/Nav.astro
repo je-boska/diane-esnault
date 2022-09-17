@@ -11,8 +11,9 @@ const { categories } = Astro.props;
   </a>
   {
     categories.map(({ title, slug }) => (
-      <a href={`/category/${slug}`}>
+      <a class='relative group' href={`/category/${slug}`}>
         <h3 class='inline'>{title.slice(0, 3)}</h3>
+        <span class='absolute top-8 hidden group-hover:block'>{title}</span>
         <span class='mx-2'>|</span>
       </a>
     ))

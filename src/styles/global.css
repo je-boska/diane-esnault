@@ -6,12 +6,12 @@
 
 body {
   @apply font-serif;
+  cursor: url(/flame-cursor.png) 0 20, auto;
 }
 
-body,
 a,
 a:focus {
-  cursor: url(/pink-cursor.png), auto;
+  cursor: url(/feather-cursor.png) 0 20, auto;
 }
 
 p {
