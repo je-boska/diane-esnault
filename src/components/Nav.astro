@@ -3,7 +3,7 @@ const { categories } = Astro.props;
 ---
 
 <div
-  class='fixed top-0 right-1/2 translate-x-1/2 lg:right-0 lg:translate-x-0 mobile-nav'
+  class='fixed top-0 right-1/2 translate-x-1/2 lg:right-0 lg:translate-x-0 mobile-nav md:text-lg xl:text-xl'
 >
   <div class='relative flex flex-wrap lg:pr-4 z-10 font-bold uppercase'>
     <a href={`/all`}>
@@ -14,7 +14,7 @@ const { categories } = Astro.props;
       categories.map(({ title, slug }) => (
         <a class='group' href={`/category/${slug}`}>
           <h3 class='inline'>{title.slice(0, 3)}</h3>
-          <h3 class='absolute hidden lg:group-hover:block left-0 top-8'>
+          <h3 class='absolute hidden lg:group-hover:block left-0 top-6'>
             {title}
           </h3>
           <span class='mx-2'>|</span>

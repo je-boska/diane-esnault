@@ -41,5 +41,5 @@ b {
 }
 
 .single-page-heading {
-  @apply mt-16 mr-12;
+  @apply mt-16 lg:mt-8 mr-12;
 }
