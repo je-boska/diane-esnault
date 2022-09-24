@@ -10,6 +10,7 @@ module.exports = {
     },
     colors: {
       diane: {
+        darkestBrown: '#170d02',
         darkBrown: '#301B05',
         brown: '#be8e5f',
         white: '#fff8f0',
