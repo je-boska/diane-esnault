@@ -16,12 +16,12 @@
 
 body {
   @apply font-serif;
-  cursor: url(/flame-cursor.png) 0 20, auto;
+  cursor: url(/flame-cursor-pink.png) 0 20, auto;
 }
 
 a,
 a:focus {
-  cursor: url(/feather-cursor.png) 0 20, auto;
+  cursor: url(/flame-cursor-pink.png) 0 20, auto;
 }
 
 a:hover {
