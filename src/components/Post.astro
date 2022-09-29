@@ -3,11 +3,15 @@ const { post } = Astro.props;
 const { title, slug, imagesCollection } = post;
 ---
 
-<div class='post flex justify-center items-center w-full lg:w-1/2 mb-12 lg:p-4'>
+<div
+  class='post relative group overflow-hidden flex justify-center items-center w-full lg:w-1/2 mb-12 lg:p-4'
+>
   <div class='w-full'>
     <a href={`/${slug}`}>
       <img class='mb-6 w-full' src={imagesCollection.items[0].url} alt='' />
-      <h2 class='w-full text-3xl xl:text-4xl text-center font-serif italic'>
+      <h2
+        class='post-title absolute opacity-100 md:opacity-20 group-hover:opacity-100 top-1/2 -translate-y-1/2 w-full text-center font-serif italic'
+      >
         {title}
       </h2>
     </a>

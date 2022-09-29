@@ -17,6 +17,7 @@
 body {
   @apply font-serif;
   cursor: url(/flame-cursor-pink.png) 0 20, auto;
+  text-shadow: #e3c6c1 0px 0px 8px;
 }
 
 a,
@@ -42,4 +43,14 @@ b {
 
 .single-page-heading {
   @apply mt-16 lg:mt-8 mr-12;
+}
+
+.post-title {
+  font-size: 12vw;
+}
+
+@media (min-width: 1024px) {
+  .post-title {
+    font-size: 6vw;
+  }
 }
