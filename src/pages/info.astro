@@ -1,23 +1,16 @@
 ---
-import Post from '../components/Post.astro';
 import Layout from '../layouts/Layout.astro';
-import { getPosts } from '../queries/Post';
-
-const posts = await getPosts();
 ---
 
-<Layout title='All' nav>
+<Layout title='Info' nav>
   <main>
-    <h1 class='heading single-page-heading'>All</h1>
+    <h1 class='heading single-page-heading'>Diane Esnault</h1>
     <div class='px-4 pb-8 italic text-xl md:text-2xl xl:text-3xl max-w-3xl'>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
         officia quaerat laboriosam at alias nobis ducimus eveniet ea nesciunt
         debitis?
       </p>
-    </div>
-    <div class='flex flex-wrap'>
-      {posts.map((post) => <Post post={post} />)}
     </div>
   </main>
 </Layout>
