@@ -34,10 +34,10 @@ const { title, body, images, color, backgroundColor } = Astro.props;
     <div class='px-4 pb-8 italic text-xl md:text-2xl xl:text-3xl max-w-3xl'>
       <div set:html={documentToHtmlString(body.json)}></div>
     </div>
-    <div class='w-full flex flex-wrap px-2'>
+    <div class='post-images-container w-full flex flex-wrap'>
       {
         images.map(({ url, title }) => (
-          <img class='w-full p-2 lg:w-1/2' src={url} alt={title} />
+          <img class='w-full lg:w-1/2' src={url} alt={title} />
         ))
       }
     </div>
