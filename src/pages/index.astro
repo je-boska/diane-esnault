@@ -9,20 +9,20 @@ const categories = await getCategories();
   <main>
     <div class='max-w-8xl mx-auto px-2 text-center mt-[50vh] -translate-y-1/2'>
       <h1 class='heading'>Diane Esnault</h1>
-      <div class='flex flex-wrap justify-center'>
-        <div class='font-bold'>
+      <div class='flex flex-wrap flex-col md:flex-row justify-center'>
+        <div class='font-bold mb-2'>
           <a href='/info'>
             <h2 class='inline uppercase md:text-lg xl:text-xl'>Info</h2>
-            <span class='mx-2'>|</span>
+            <span class='ml-2 mr-2 hidden md:inline opacity-20'>|</span>
           </a>
         </div>
         {
           categories.map(({ title, slug }, idx) => (
-            <div class='font-bold'>
+            <div class='font-bold mb-2'>
               <a href={`/category/${slug}`}>
                 <h2 class='inline uppercase md:text-lg xl:text-xl'>{title}</h2>
                 {idx !== categories.length - 1 ? (
-                  <span class='mx-2'>|</span>
+                  <span class='ml-2 mr-2.5 hidden md:inline opacity-20'>|</span>
                 ) : null}
               </a>
             </div>

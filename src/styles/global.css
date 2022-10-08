@@ -22,7 +22,7 @@ body {
 }
 
 p {
-  @apply tracking-wider;
+  @apply font-serif tracking-wider;
 }
 
 b {
