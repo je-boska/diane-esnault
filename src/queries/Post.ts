@@ -3,27 +3,12 @@ import { contentfulQuery } from './Query';
 export async function getPosts() {
   const query = /* GRAPHQL */ `
     query PostsQuery {
-      postCollection (limit: 10) {
+      postCollection (limit: 100) {
         items {
           title
           slug
           body {
             json
-            links {
-              assets {
-                block {
-                  sys {
-                      id
-                  }
-                  contentType
-                  title
-                  description
-                  url
-                  width
-                  height
-                }
-              }
-            }
           }
           imagesCollection(limit: 10) {
             items {
@@ -38,6 +23,6 @@ export async function getPosts() {
         }
       }
     }`;
-  const data = await contentfulQuery(query);
+  const { data } = await contentfulQuery(query);
   return data.postCollection.items;
 }

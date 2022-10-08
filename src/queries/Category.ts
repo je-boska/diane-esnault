@@ -3,30 +3,17 @@ import { contentfulQuery } from './Query';
 export async function getCategories() {
   const query = /* GRAPHQL */ `
     query CategoryQuery {
-      categoryCollection (limit: 10) {
+      categoryCollection (
+        limit: 3
+      ) {
         items {
           title
           slug
           body {
             json
-            links {
-              assets {
-                block {
-                  sys {
-                      id
-                  }
-                  contentType
-                  title
-                  description
-                  url
-                  width
-                  height
-                }
-              }
-            }
           }
           linkedFrom {
-            postCollection(limit:10) {
+            postCollection(limit: 100) {
                 items {
                     title
                     slug
@@ -44,20 +31,20 @@ export async function getCategories() {
         }
       }
     }`;
-  const data = await contentfulQuery(query);
+  const { data } = await contentfulQuery(query);
   return data.categoryCollection.items;
 }
 
 export async function getCategoryNames() {
   const query = /* GRAPHQL */ `
     query CategoryQuery {
-      categoryCollection (limit: 10) {
+      categoryCollection (limit: 3) {
         items {
           title
           slug
         }
       }
     }`;
-  const data = await contentfulQuery(query);
+  const { data } = await contentfulQuery(query);
   return data.categoryCollection.items;
 }
