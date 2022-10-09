@@ -3,12 +3,12 @@ module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    fontFamily: {
-      title: ['Homeworld', 'Helvetica'],
-      serif: ['KENOKY-Regular', 'Times New Roman'],
-      bold: ['KENOKY-Bold', 'Times New Roman'],
-    },
     extend: {
+      fontFamily: {
+        title: ['Homeworld', 'Helvetica'],
+        serif: ['KENOKY-Regular', 'Times New Roman'],
+        bold: ['KENOKY-Bold', 'Times New Roman'],
+      },
       colors: {
         diane: {
           darkestBrown: '#170d02',

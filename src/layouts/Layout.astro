@@ -24,18 +24,19 @@ const categories = await getCategoryNames();
 
 <!DOCTYPE html>
 <html lang='en'>
-  <meta charset='UTF-8' />
-  <meta name='viewport' content='width=device-width' />
-  <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-  <meta name='generator' content={Astro.generator} />
-  <title>Diane Esnault | {title}</title>
-
-  <style define:vars={{ color, backgroundColor }}>
-    body {
-      color: var(--color);
-      background-color: var(--backgroundColor);
-    }
-  </style>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Diane Esnault | {title}</title>
+    <style define:vars={{ color, backgroundColor }}>
+      body {
+        color: var(--color);
+        background-color: var(--backgroundColor);
+      }
+    </style>
+  </head>
 
   <body>
     <div id='canvas' class='z-10 h-full w-full absolute'>
