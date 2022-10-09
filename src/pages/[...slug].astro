@@ -32,9 +32,9 @@ const { title, body, images, color, backgroundColor } = Astro.props;
       {title}
     </h1>
     <div
-      class='px-4 lg:px-8 pb-8 italic text-xl md:text-2xl xl:text-3xl max-w-3xl'
+      class='markdown single-page-body'
+      set:html={documentToHtmlString(body.json)}
     >
-      <div set:html={documentToHtmlString(body.json)}></div>
     </div>
     <div class='post-images-container w-full flex flex-wrap'>
       {

@@ -5,11 +5,6 @@ function getErrorMessage(payload: ErrorPayload) {
 }
 
 export async function contentfulQuery(query) {
-  if (process.env.NODE_ENV !== 'production') {
-    const queryName = query.trimStart().substring(6, query.indexOf('Query'));
-    console.log('[graphql]', queryName);
-  }
-
   const res = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${
       import.meta.env.PUBLIC_CONTENTFUL_SPACE_ID

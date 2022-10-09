@@ -2,27 +2,33 @@
 const { categories } = Astro.props;
 ---
 
-<div
+<nav
   class='fixed z-10 top-0 w-full flex justify-center lg:justify-end mobile-nav md:text-lg xl:text-xl'
 >
   <div class='relative flex flex-wrap lg:pr-4 z-10 font-bold uppercase'>
-    <a href={`/info`}>
-      <h3 class='inline'>Info</h3>
-      <span class='mx-2 mr-2.5 opacity-20'>|</span>
+    <a class='group' href={`/info`}>
+      <h3 class='inline pr-2.5'>Info</h3>
+      <h3 class='absolute hidden lg:group-hover:block left-0 top-6'>
+        & Contact
+      </h3>
     </a>
+    <span class='opacity-20'>|</span>
     {
       categories.map(({ title, slug }) => (
-        <a class='group' href={`/category/${slug}`}>
-          <h3 class='inline'>{title.slice(0, 3)}</h3>
-          <h3 class='absolute hidden lg:group-hover:block left-0 top-6'>
-            {title}
-          </h3>
-          <span class='ml-2 mr-2.5 opacity-20'>|</span>
-        </a>
+        <div class='group'>
+          <a href={`/category/${slug}`} class='pr-2 pl-2.5'>
+            <h3 class='inline'>{title.slice(0, 3)}</h3>
+            <h3 class='absolute hidden lg:group-hover:block left-0 top-6'>
+              {title}
+            </h3>
+          </a>
+          <span class='opacity-20'>|</span>
+        </div>
       ))
     }
     <a class='group' href={`/`}>
-      <h3>⌂</h3>
+      <h3 class='pl-2.5'>⌂</h3>
+      <h3 class='absolute hidden lg:group-hover:block left-0 top-6'>Home</h3>
     </a>
   </div>
-</div>
+</nav>

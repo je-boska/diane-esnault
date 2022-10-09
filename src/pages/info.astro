@@ -1,16 +1,19 @@
 ---
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Layout from '../layouts/Layout.astro';
+import { getInfoPage } from '../queries/Info';
+
+const { title, body, backgroundImage, color, backgroundColor } =
+  await getInfoPage();
 ---
 
 <Layout title='Info' nav>
   <main>
-    <h1 class='heading single-page-heading'>Diane Esnault</h1>
-    <div class='px-4 lg:px-8 pb-8 text-xl md:text-2xl xl:text-3xl max-w-3xl'>
-      <p class='italic'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
-        officia quaerat laboriosam at alias nobis ducimus eveniet ea nesciunt
-        debitis?
-      </p>
+    <h1 class='heading single-page-heading'>{title}</h1>
+    <div
+      class='markdown single-page-body'
+      set:html={documentToHtmlString(body.json)}
+    >
     </div>
   </main>
 </Layout>
