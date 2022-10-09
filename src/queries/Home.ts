@@ -17,13 +17,7 @@ export async function getHomePage() {
         color
         backgroundColor
       }
-      categoryCollection (limit: 3) {
-        items {
-          title
-          slug
-        }
-      }
     }`;
   const { data } = await contentfulQuery(query);
-  return data;
+  return data.page;
 }

@@ -8,6 +8,7 @@ export interface Props {
   color?: string;
   backgroundColor?: string;
   nav?: boolean;
+  backgroundImage?: string;
 }
 
 // THEME DEFAULT COLORS SET HERE,
@@ -17,6 +18,7 @@ const {
   color = '#c0fda1',
   backgroundColor = '#170d02',
   nav,
+  backgroundImage = '',
 } = Astro.props;
 
 const categories = await getCategoryNames();
@@ -39,6 +41,15 @@ const categories = await getCategoryNames();
   </head>
 
   <body>
+    {
+      backgroundImage ? (
+        <img
+          src={backgroundImage}
+          alt=''
+          class='fixed top-0 w-full h-full object-cover opacity-60 -z-10'
+        />
+      ) : null
+    }
     <div id='canvas' class='z-10 h-full w-full absolute'>
       {nav ? <Nav categories={categories} /> : null}
       <slot />

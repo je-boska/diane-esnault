@@ -1,20 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCategoryNames } from '../queries/Category';
 import { getHomePage } from '../queries/Home';
 
-const {
-  page: { backgroundImage },
-  categoryCollection: { items: categories },
-} = await getHomePage();
+const { backgroundImage } = await getHomePage();
+
+const categories = await getCategoryNames();
 ---
 
-<Layout title='Diane Esnault'>
+<Layout title='Diane Esnault' backgroundImage={backgroundImage.url}>
   <main>
-    <img
-      src={backgroundImage.url}
-      alt=''
-      class='fixed top-0 w-full h-full object-cover opacity-60 -z-10'
-    />
     <div class='max-w-8xl mx-auto px-2 text-center mt-[50vh] -translate-y-1/2'>
       <h1 class='heading'>Diane Esnault</h1>
       <div class='flex flex-wrap flex-col md:flex-row justify-center'>
