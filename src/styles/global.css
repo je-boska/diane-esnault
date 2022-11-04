@@ -34,12 +34,12 @@
     @apply font-serif tracking-wider;
   }
 
-  p a {
-    @apply text-diane-white;
+  a {
+    text-decoration: underline;
   }
 
-  a:hover {
-    text-decoration: underline;
+  p a:hover {
+    @apply bg-diane-green text-diane-darkBrown;
   }
 
   b {
