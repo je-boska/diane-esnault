@@ -10,12 +10,13 @@ export async function getPosts() {
           body {
             json
           }
-          imagesCollection(limit: 10) {
+          imagesCollection(limit: 100) {
             items {
               url
               title
               width
               height
+              contentType
             }
           }
           color

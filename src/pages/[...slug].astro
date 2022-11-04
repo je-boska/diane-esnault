@@ -38,8 +38,18 @@ const { title, body, images, color, backgroundColor } = Astro.props;
     </div>
     <div class='post-images-container w-full flex flex-wrap'>
       {
-        images.map(({ url, title }) => (
-          <img class='w-full lg:w-1/2' src={url} alt={title} />
+        images.map(({ url, title, contentType }) => (
+          <>
+            {contentType.includes('image') ? (
+              <div class='post-image w-full lg:w-1/2'>
+                <img class='w-full h-full object-cover' src={url} alt={title} />
+              </div>
+            ) : contentType.includes('video') ? (
+              <div class='post-image w-full lg:w-1/2'>
+                <video class='w-full' src={url} controls />
+              </div>
+            ) : null}
+          </>
         ))
       }
     </div>

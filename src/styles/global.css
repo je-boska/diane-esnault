@@ -34,7 +34,8 @@
     @apply font-serif tracking-wider;
   }
 
-  a {
+  p a,
+  a:hover {
     text-decoration: underline;
   }
 
@@ -91,15 +92,15 @@
     @apply md:px-4 max-w-[1400px] mx-auto;
   }
 
-  .post-images-container img:nth-of-type(3n - 2) {
+  .post-image:nth-of-type(3n - 2) {
     @apply w-full py-4 md:py-8 object-cover;
     aspect-ratio: 4/3;
   }
-  .post-images-container img:nth-of-type(3n - 1) {
+  .post-image:nth-of-type(3n - 1) {
     @apply w-1/2 pr-2 md:pr-4 object-cover;
     aspect-ratio: 3/4;
   }
-  .post-images-container img:nth-of-type(3n) {
+  .post-image:nth-of-type(3n) {
     @apply w-1/2 pl-2 md:pl-4 object-cover;
     aspect-ratio: 3/4;
   }
