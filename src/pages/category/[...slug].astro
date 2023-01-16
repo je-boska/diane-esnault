@@ -35,7 +35,9 @@ const orderedPosts = linkedFrom.postCollection.items.sort((itemA, itemB) =>
         />
       ) : null
     }
-    <div class='flex flex-wrap lg:gap-8 md:mx-4 lg:mx-8 pb-20'>
+    <div
+      class='grid lg:grid-cols-2 lg:gap-8 md:mx-4 lg:mx-8 3xl:mx-auto max-w-[1920px] pb-20'
+    >
       {orderedPosts.map((post) => <Post post={post} />)}
     </div>
   </main>

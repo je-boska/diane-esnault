@@ -14,7 +14,7 @@ const { title, body, backgroundImage } = await getInfoPage();
   <main>
     <h1 class='heading single-page-heading'>{title}</h1>
     <div
-      class='rich-text single-page-body'
+      class='rich-text single-page-body pb-20'
       set:html={documentToHtmlString(body.json)}
     >
     </div>
