@@ -65,6 +65,10 @@
     @apply mb-6 leading-normal;
   }
 
+  .markdown h6 {
+    @apply text-base md:text-lg xl:text-xl;
+  }
+
   /* CURSOR */
 
   body {
