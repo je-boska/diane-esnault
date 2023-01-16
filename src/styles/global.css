@@ -52,7 +52,7 @@
   }
 
   .single-page-heading {
-    @apply text-center mt-16;
+    @apply text-center mt-16 lg:mt-24 lg:mb-16;
   }
 
   .single-page-body {
@@ -72,12 +72,12 @@
   /* CURSOR */
 
   body {
-    cursor: url(/flame-cursor-pink.png) 0 20, auto;
+    cursor: url(/cursor1.png) 0 0, auto;
   }
 
   a,
   a:focus {
-    cursor: url(/flame-cursor-pink.png) 0 20, auto;
+    cursor: url(/cursor1.png) 0 0, auto;
   }
 
   /* POST */
