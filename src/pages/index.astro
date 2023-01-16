@@ -14,7 +14,7 @@ const categories = await getCategoryNames();
     <div class='max-w-8xl mx-auto px-2 text-center mt-[50vh] -translate-y-1/2'>
       <h1 class='heading'>Diane Esnault</h1>
       <div
-        class='markdown single-page-body'
+        class='rich-text single-page-body'
         set:html={documentToHtmlString(body.json)}
       >
       </div>

@@ -59,13 +59,13 @@
     @apply px-4 lg:px-8 mb-8 lg:mb-16 text-xl md:text-2xl xl:text-3xl max-w-5xl italic leading-normal mx-auto;
   }
 
-  /* MARKDOWN */
+  /* RICH TEXT */
 
-  .markdown p {
+  .rich-text p {
     @apply mb-6 leading-normal;
   }
 
-  .markdown h6 {
+  .rich-text h6 {
     @apply text-base md:text-lg xl:text-xl;
   }
 

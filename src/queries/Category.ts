@@ -15,6 +15,9 @@ export async function getCategories() {
           linkedFrom {
             postCollection(limit: 100) {
                 items {
+                    sys {
+                      firstPublishedAt
+                    }
                     title
                     slug
                     imagesCollection(limit: 1) {

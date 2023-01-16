@@ -32,11 +32,11 @@ const { title, body, images, color, backgroundColor } = Astro.props;
       {title}
     </h1>
     <div
-      class='markdown single-page-body'
+      class='rich-text single-page-body'
       set:html={documentToHtmlString(body.json)}
     >
     </div>
-    <div class='post-images-container w-full flex flex-wrap'>
+    <div class='post-images-container w-full flex flex-wrap pb-20'>
       {
         images.map(({ url, title, contentType }) => (
           <>

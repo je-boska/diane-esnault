@@ -16,6 +16,10 @@ export async function getStaticPaths() {
 }
 
 const { title, body, linkedFrom } = Astro.props;
+
+const orderedPosts = linkedFrom.postCollection.items.sort((itemA, itemB) =>
+  itemA.sys.firstPublishedAt > itemB.sys.firstPublishedAt ? -1 : 1
+);
 ---
 
 <Layout title={title} nav>
@@ -23,13 +27,16 @@ const { title, body, linkedFrom } = Astro.props;
     <h1 class='heading single-page-heading'>
       {title}
     </h1>
-    <div
-      class='markdown single-page-body'
-      set:html={documentToHtmlString(body.json)}
-    >
-    </div>
-    <div class='flex flex-wrap lg:gap-8 md:mx-4 lg:mx-8'>
-      {linkedFrom.postCollection.items.map((post) => <Post post={post} />)}
+    {
+      body ? (
+        <div
+          class='rich-text single-page-body text-center'
+          set:html={documentToHtmlString(body.json)}
+        />
+      ) : null
+    }
+    <div class='flex flex-wrap lg:gap-8 md:mx-4 lg:mx-8 pb-20'>
+      {orderedPosts.map((post) => <Post post={post} />)}
     </div>
   </main>
 </Layout>
