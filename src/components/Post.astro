@@ -9,12 +9,12 @@ const { title, slug, imagesCollection } = post;
   <div class='w-full'>
     <a href={`/${slug}`}>
       <img
-        class='w-full aspect-[4/3] object-cover'
+        class='w-full aspect-[4/3] object-cover group-hover:opacity-60 transition-opacity duration-300'
         src={imagesCollection.items[0].url}
         alt=''
       />
       <h2
-        class='post-title absolute opacity-60 md:opacity-20 group-hover:opacity-100 transition-opacity duration-500 top-1/2 -translate-y-1/2 w-full text-center font-serif italic'
+        class='post-title absolute opacity-60 md:opacity-20 group-hover:opacity-100 transition-opacity duration-300 top-1/2 -translate-y-1/2 w-full text-center font-serif italic'
       >
         {title}
       </h2>
