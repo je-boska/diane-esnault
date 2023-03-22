@@ -45,9 +45,13 @@ export async function getCategoryNames() {
         items {
           title
           slug
+          order
         }
       }
     }`;
   const { data } = await contentfulQuery(query);
-  return data.categoryCollection.items;
+  const sortedCategories = data.categoryCollection.items.sort((a, b) =>
+    a.order > b.order ? 1 : -1
+  );
+  return sortedCategories;
 }
