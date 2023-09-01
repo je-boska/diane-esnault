@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro';
 import { getPosts } from '../queries/Post';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -38,11 +39,11 @@ const { title, body, images, color, backgroundColor } = Astro.props;
     </div>
     <div class='post-images-container w-full flex flex-wrap pb-20'>
       {
-        images.map(({ url, title, contentType }) => (
+        images.map(({ url, width, height, title, contentType }) => (
           <>
             {contentType.includes('image') ? (
               <div class='post-image w-full lg:w-1/2'>
-                <img class='w-full h-full object-cover' src={url} alt={title} />
+                <Image class='w-full h-full object-cover' src={url} alt={title} width={width} height={height} />
               </div>
             ) : contentType.includes('video') ? (
               <div class='post-image w-full lg:w-1/2'>

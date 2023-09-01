@@ -8,7 +8,7 @@ const { title, body, backgroundImage } = await getInfoPage();
 
 <Layout
   title='Info'
-  backgroundImage={backgroundImage ? backgroundImage.url : ''}
+  backgroundImage={backgroundImage ? backgroundImage : null}
   nav
 >
   <main>
