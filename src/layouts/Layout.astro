@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+import { Image } from 'astro:assets'
 import Nav from '../components/Nav.astro';
 import { getCategoryNames } from '../queries/Category';
 import '../styles/global.css';
@@ -8,7 +10,11 @@ export interface Props {
   color?: string;
   backgroundColor?: string;
   nav?: boolean;
-  backgroundImage?: string;
+  backgroundImage?: {
+    url: string
+    width: number
+    height: number
+  };
 }
 
 // THEME DEFAULT COLORS SET HERE,
@@ -18,7 +24,7 @@ const {
   color = '#c0fda1',
   backgroundColor = '#170d02',
   nav,
-  backgroundImage = '',
+  backgroundImage = null,
 } = Astro.props;
 
 const categories = await getCategoryNames();
@@ -27,6 +33,7 @@ const categories = await getCategoryNames();
 <!DOCTYPE html>
 <html lang='en'>
   <head>
+    <ViewTransitions />
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
@@ -68,10 +75,12 @@ const categories = await getCategoryNames();
   <body>
     {
       backgroundImage ? (
-        <img
-          src={backgroundImage}
+        <Image
+          src={backgroundImage.url}
           alt=''
           class='fixed top-0 w-full h-full object-cover opacity-60 -z-10'
+          width={backgroundImage.width}
+          height={backgroundImage.height}
         />
       ) : null
     }
